@@ -5,6 +5,8 @@ const createError = require('http-errors');
 const bodyParser = require('body-parser')
 const rateLimit = require('express-rate-limit'); // 
 const xssClean = require('xss-clean');
+const userRouter = require('./routers/userRouter');
+
 
 // api call limit function start-----------
 const limiter = rateLimit({
@@ -20,6 +22,9 @@ app.use(xssClean());
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extends: true}));
+
+
+app.use('/api/users',userRouter)
 // middleware end****************************
 
 // middleware functions stat-------------
@@ -36,15 +41,10 @@ const LoginMiddleware = ((req, res, next) =>{
 
 app.get('/', (req, res)=>{
   res.status(200).send({
-    message: "server text route",
+    message: "server test route",
   })
 });
-app.get('/api/test',LoginMiddleware, (req, res)=>{
-  console.log(req.body);
-  res.status(200).send({
-    message: "server route",
-  })
-});
+
 
 // client site error
 app.use((req, res, next )=>{

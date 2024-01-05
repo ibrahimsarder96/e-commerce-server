@@ -1,0 +1,16 @@
+const users = [
+  {
+    name: 'jack',
+    email: 'jacke@gmail.com',
+    phone: '00000000',
+    address: 'Dhaka, Bangladesh'
+  },
+  {
+    name: 'jeni',
+    email: 'jeni@gmail.com',
+    phone: '00000000',
+    address: 'Dhaka, Bangladesh'
+  },
+];
+
+module.exports = users;
