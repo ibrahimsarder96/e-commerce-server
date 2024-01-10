@@ -43,8 +43,8 @@ const userSchema = new Schema({
     required: [true, 'user phone is required'],
   },
   isAdmin:{
-    type: string,
-    required: [true, 'user address is required'],
+    type: Boolean,
+    default: false
   },
   isBanned:{
     type: Boolean,
@@ -52,5 +52,5 @@ const userSchema = new Schema({
   },
 }, {timestamps: true})
 
-const user = modal('user', userSchema);
-module.exports = user;
+const User = modal('user', userSchema);
+module.exports = User;

@@ -1,13 +1,21 @@
 const data = require('../../data');
-const user = require('../models/userModel');
+const User = require('../models/userModel');
 
 
 const seedUser = async(req, res, next) =>{
   try{
-    await user.deleteMany({})
+    // deleting all existing users
+    await User.deleteMany({});
 
-    
+    // insert many users
+    const users = await User.insertMany(data.users);
+
+    // successful response
+    return res.status(201).json(users)
+
   }catch(error){
-
+    next(error)
   }
 }
+
+module.exports = {seedUser};

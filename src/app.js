@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const rateLimit = require('express-rate-limit'); // 
 const xssClean = require('xss-clean');
 const userRouter = require('./routers/userRouter');
+const seedRouter = require('./routers/seedRouter');
 
 
 // api call limit function start-----------
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({extends: true}));
 
 
 app.use('/api/users',userRouter)
+app.use('/api/seed',seedRouter)
 // middleware end****************************
 
 // middleware functions stat-------------
