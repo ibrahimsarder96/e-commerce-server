@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan'); 
 const createError = require('http-errors');
-const bodyParser = require('body-parser')
-const rateLimit = require('express-rate-limit'); // 
-const xssClean = require('xss-clean');
+const bodyParser = require('body-parser');
+const rateLimit = require('express-rate-limit');
+const xssClean = require('xss-clean'); 
 const userRouter = require('./routers/userRouter');
 const seedRouter = require('./routers/seedRouter');
 
@@ -55,7 +55,7 @@ app.use((req, res, next )=>{
 
 // server site error
 app.use((err, req, res, next) =>{
-  return res.status(err.status || 500).json({
+  return res.status(err.status || 5000).json({
     success: false,
     message: err.message,
   })

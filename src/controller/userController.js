@@ -1,7 +1,5 @@
 const createError = require('http-errors');
 
-
-
 const userRoute = ((req, res, next)=>{
   try{
     res.status(200).send({

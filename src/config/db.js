@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const { mongoDB } = require('../secret')
 
-const connectDatabase = async(options) =>{
+const connectDatabase = async(options = {}) =>{
   try{
     await mongoose.connect(mongoDB, options)
     console.log("connection db successfully established")

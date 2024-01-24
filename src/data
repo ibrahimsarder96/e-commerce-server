@@ -1,16 +1,18 @@
-const users = [
+const data = {
+  users:[
   {
     name: 'jack',
-    email: 'jacke@gmail.com',
+    email: 'jack@gmail.com',
     phone: '00000000',
     address: 'Dhaka, Bangladesh'
   },
   {
-    name: 'jeni',
-    email: 'jeni@gmail.com',
+    name: 'jenni',
+    email: 'jenni@gmail.com',
     phone: '00000000',
     address: 'Dhaka, Bangladesh'
-  },
-];
+  }
+]
+};
 
-module.exports = users;
+module.exports = data;

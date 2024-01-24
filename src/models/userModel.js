@@ -1,18 +1,17 @@
-const {Schema, modal} = require('mongoose');
+const {Schema, model} = require('mongoose');
 const bcrypt = require('bcrypt');
 const { defaultImage } = require('../secret');
 
-
 const userSchema = new Schema({
   name:{
-    type: string,
+    type: String,
     required: [true, 'user name is required'],
     trim: true,
     minlength: [3, 'The length of the user name can be min 3 characters'],
     maxlength: [31, 'The length of the user name can be max 31 characters']
   },
   email:{
-    type: string,
+    type: String,
     required: [true, 'user email is required'],
     trim: true,
     unique: true,
@@ -25,21 +24,21 @@ const userSchema = new Schema({
     }
   },
   password:{
-    type: string,
+    type: String,
     required: [true, 'user password is required'],
     minlength: [6, 'The length of the user password can  be min 6 characters'],
     set: (v) => bcrypt.hashSync(v, bcrypt.genSaltSync(10))
   },
   image:{
-    type: string,
-    default: defaultImage
+    type: String,
+    default: defaultImage,
   },
   address:{
-    type: string,
+    type: String,
     required: [true, 'user address is required'],
   },
   phone:{
-    type: string,
+    type: String,
     required: [true, 'user phone is required'],
   },
   isAdmin:{
@@ -52,5 +51,5 @@ const userSchema = new Schema({
   },
 }, {timestamps: true})
 
-const User = modal('user', userSchema);
+const User = model('Users', userSchema);
 module.exports = User;
